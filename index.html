@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#140b08">
+  <title>Nishant & Saumya — Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Noto+Serif+Devanagari:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-symbol">ॐ</div><div class="loader-line"><i></i></div><span>Preparing the sacred invitation</span></div>
+
+  <main id="experience" aria-label="Interactive wedding invitation">
+    <div class="grain"></div>
+    <div class="stars"></div>
+    <div class="petals" id="petals"></div>
+
+    <section class="scene active" id="scene-ganesh">
+      <div class="mountain-glow"></div>
+      <div class="temple-arch"></div>
+      <div class="ganesh aura">
+        <div class="crown">✦</div>
+        <div class="head"><span class="ear left"></span><span class="ear right"></span><span class="eye e1"></span><span class="eye e2"></span><div class="trunk"></div></div>
+        <div class="body"><span class="arm a1"></span><span class="arm a2"></span><span class="belly"></span></div>
+        <div class="lotus-seat">✺</div>
+      </div>
+      <div class="scene-copy">
+        <div class="eyebrow">श्री गणेशाय नमः</div>
+        <h1>A blessing<br><em>before the beginning.</em></h1>
+        <p id="ganeshHint">Move your pointer toward Ganesh Ji.</p>
+      </div>
+      <div class="interaction-orb" id="orb"><span>✦</span></div>
+    </section>
+
+    <section class="scene" id="scene-handoff">
+      <div class="kailash"></div>
+      <div class="cloud cloud1"></div><div class="cloud cloud2"></div>
+      <div class="divine-couple">
+        <div class="deity shiva"><div class="halo"></div><div class="deity-head">☽</div><div class="deity-body">ॐ</div><div class="hand"></div></div>
+        <div class="deity parvati"><div class="halo"></div><div class="deity-head">✦</div><div class="deity-body">❁</div><div class="hand"></div></div>
+      </div>
+      <div class="golden-card" id="goldenCard">
+        <div class="card-ornament">ॐ</div><strong>WEDDING</strong><small>INVITATION</small>
+      </div>
+      <div class="scene-copy center">
+        <div class="eyebrow">A divine invitation</div>
+        <h2>From one blessing<br>to another.</h2>
+        <p id="handoffText">The invitation travels to Kailash.</p>
+      </div>
+    </section>
+
+    <section class="scene" id="scene-open">
+      <div class="throne"></div>
+      <div class="blessing-arch"></div>
+      <div class="divine-couple large">
+        <div class="deity shiva"><div class="halo"></div><div class="deity-head">☽</div><div class="deity-body">ॐ</div><div class="hand"></div></div>
+        <div class="deity parvati"><div class="halo"></div><div class="deity-head">✦</div><div class="deity-body">❁</div><div class="hand"></div></div>
+      </div>
+      <div class="presented-card" id="presentedCard">
+        <div class="card-front">
+          <span>शुभ विवाह</span>
+          <b>NISHANT</b><i>&</i><b>SAUMYA</b>
+          <small>2 DECEMBER 2026</small>
+        </div>
+        <button id="openBtn">TAP TO OPEN <span>↗</span></button>
+      </div>
+    </section>
+
+    <section class="scene invitation-scene" id="scene-invitation">
+      <div class="invitation">
+        <div class="invite-page cover">
+          <div class="mandala"></div>
+          <div class="invite-inner">
+            <span class="sanskrit">॥ श्री गणेशाय नमः ॥</span>
+            <span class="tiny">WITH THE BLESSINGS OF SHIVA & PARVATI</span>
+            <h2>THE<br><em>SACRED</em><br>UNION</h2>
+            <div class="names">Nishant <span>&</span> Saumya</div>
+            <p>Two hearts. One sacred journey.</p>
+          </div>
+        </div>
+        <div class="invite-page details">
+          <div class="page-number">01</div>
+          <span class="tiny">THE DAY</span><h3>We invite you<br>to celebrate.</h3>
+          <div class="date"><b>02</b><span>DECEMBER<br><i>2026</i></span></div>
+          <div class="detail-row"><span>WEDNESDAY</span><span>4:00 PM onwards</span></div>
+          <div class="detail-row"><span>VENUE</span><span>Sakhwat Premkapur<br>Jaunpur</span></div>
+          <button class="next" data-next="story">Continue the journey →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene event-scene haldi" id="scene-haldi">
+      <div class="event-art"><div class="marigold-ring"></div><div class="bowl">✺</div><div class="silhouette bride">♡</div><div class="silhouette groom">✦</div></div>
+      <div class="event-copy"><span class="tiny">02 / CELEBRATION</span><h2>Haldi</h2><p>Golden laughter, turmeric, marigolds and the first celebration.</p><div class="event-meta">01 DECEMBER · FAMILY COURTYARD</div><button class="next" data-next="mehndi">Next celebration →</button></div>
+    </section>
+
+    <section class="scene event-scene mehndi" id="scene-mehndi">
+      <div class="henna-lines"></div>
+      <div class="event-art"><div class="henna-hand">❧</div><div class="leaf">❁</div></div>
+      <div class="event-copy"><span class="tiny">03 / CELEBRATION</span><h2>Mehndi</h2><p>Patterns unfold like memories, one delicate line at a time.</p><div class="event-meta">01 DECEMBER · EVENING</div><button class="next" data-next="baraat">Next celebration →</button></div>
+    </section>
+
+    <section class="scene event-scene baraat" id="scene-baraat">
+      <div class="horse">♞</div><div class="dhol">◉</div><div class="lights"></div>
+      <div class="event-copy"><span class="tiny">04 / CELEBRATION</span><h2>Baraat</h2><p>The drums rise. The lights move. The journey begins.</p><div class="event-meta">02 DECEMBER · 4:00 PM</div><button class="next" data-next="wedding">Enter the mandap →</button></div>
+    </section>
+
+    <section class="scene event-scene wedding" id="scene-wedding">
+      <div class="mandap"><div class="fire">✦</div><div class="pillars"></div><div class="couple-icon">♡</div></div>
+      <div class="event-copy"><span class="tiny">05 / THE SACRED CEREMONY</span><h2>Wedding</h2><p>Under the mandap, beside the sacred fire, two lives become one path.</p><div class="event-meta">02 DECEMBER · JAUNPUR</div><button class="next" data-next="finale">Receive the blessing →</button></div>
+    </section>
+
+    <section class="scene finale" id="scene-finale">
+      <div class="final-halo"></div><div class="om">ॐ</div>
+      <div class="final-copy"><span class="tiny">WITH LOVE & GRATITUDE</span><h2>Nishant <span>&</span> Saumya</h2><p>May every step of your journey be blessed with love, laughter and grace.</p><div class="final-date">02 · 12 · 2026</div><button id="restart">Experience again ↺</button></div>
+    </section>
+  </main>
+
+  <nav class="progress" id="progress" aria-label="Invitation progress"></nav>
+  <div class="sound" id="sound">♫ <span>Sound</span></div>
+  <script src="script.js"></script>
+</body>
+</html>
