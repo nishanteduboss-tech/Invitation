@@ -1,59 +1,10 @@
-const scenes=[...document.querySelectorAll(".scene")];
-const progress=document.getElementById("progress");
-scenes.forEach((_,i)=>{const dot=document.createElement("i");dot.dataset.i=i;progress.appendChild(dot)});
-let index=0, unlocked=false;
-function show(i){
-  index=Math.max(0,Math.min(i,scenes.length-1));
-  scenes.forEach((s,n)=>s.classList.toggle("active",n===index));
-  [...progress.children].forEach((d,n)=>d.classList.toggle("active",n===index));
-  window.scrollTo(0,0);
-}
-show(0);
-
-const orb=document.getElementById("orb"), hint=document.getElementById("ganeshHint");
-let mouseX=.5,mouseY=.5;
-window.addEventListener("pointermove",e=>{
-  mouseX=e.clientX/innerWidth; mouseY=e.clientY/innerHeight;
-  if(index===0){
-    const dx=(mouseX-.5)*18, dy=(mouseY-.45)*10;
-    document.querySelector(".ganesh").style.transform=`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px))`;
-    orb.style.transform=`translate(${(mouseX-.5)*40}px,${(mouseY-.5)*25}px)`;
-    if(mouseX>.58 && mouseY>.2 && mouseY<.75){
-      hint.textContent="Ganesh Ji has noticed you. Tap the golden light.";
-      orb.style.opacity="1"; unlocked=true;
-    }
-  }
-});
-window.addEventListener("pointerdown",()=>{
-  if(index===0 && unlocked) show(1);
-});
-document.getElementById("goldenCard").addEventListener("click",()=>show(2));
-document.getElementById("openBtn").addEventListener("click",()=>show(3));
-document.querySelectorAll(".next").forEach(b=>b.addEventListener("click",()=> {
-  const key=b.dataset.next;
-  const map={story:4,mehndi:5,baraat:6,wedding:7,finale:8};
-  show(map[key] ?? index+1);
-}));
-document.getElementById("restart").addEventListener("click",()=>{unlocked=false;hint.textContent="Move your pointer toward Ganesh Ji.";show(0)});
-
-let startX=0;
-window.addEventListener("touchstart",e=>startX=e.touches[0].clientX,{passive:true});
-window.addEventListener("touchend",e=>{
-  const dx=e.changedTouches[0].clientX-startX;
-  if(Math.abs(dx)>80 && index>3) show(index+(dx<0?1:-1));
-},{passive:true});
-
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight"||e.key===" ") show(index+1);
-  if(e.key==="ArrowLeft") show(index-1);
-});
-
-const petals=document.getElementById("petals");
-for(let i=0;i<28;i++){
-  const p=document.createElement("span");
-  p.style.left=Math.random()*100+"%";
-  p.style.animationDelay=(Math.random()*8)+"s";
-  p.style.animationDuration=(7+Math.random()*8)+"s";
-  petals.appendChild(p);
-}
-window.addEventListener("load",()=>setTimeout(()=>document.getElementById("loader").classList.add("hide"),700));
+const scenes=[...document.querySelectorAll('.scene')];const progress=document.getElementById('progress');let index=0;let unlocked=false;let soundOn=false;let audioCtx=null;const names=['ganesh','handoff','open','invitation','haldi','mehndi','baraat','wedding','finale'];
+function showScene(i,{silent=false}={}){index=Math.max(0,Math.min(i,scenes.length-1));scenes.forEach((s,n)=>s.classList.toggle('active',n===index));[...progress.children].forEach((b,n)=>b.classList.toggle('active',n===index));if(!silent){burst();clickTone()}}
+names.forEach((n,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',`Go to ${n}`);b.addEventListener('click',()=>showScene(i));progress.appendChild(b)});
+function burst(){const wrap=document.getElementById('petals');for(let i=0;i<8;i++){const p=document.createElement('i');p.className='petal';p.style.left=(10+Math.random()*80)+'%';p.style.animationDuration=(3+Math.random()*3)+'s';p.style.animationDelay=(Math.random()*.3)+'s';wrap.appendChild(p);setTimeout(()=>p.remove(),6500)}}
+function clickTone(){if(!soundOn)return;try{audioCtx??=new AudioContext();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=330;o.type='sine';g.gain.setValueAtTime(.0001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.05,audioCtx.currentTime+.01);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.16);o.connect(g).connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.18)}catch(e){}}
+const ganesh=document.querySelector('.ganesh'),orb=document.getElementById('orb'),hint=document.getElementById('ganeshHint');let lastMove=0;window.addEventListener('pointermove',e=>{if(index!==0)return;const now=performance.now();if(now-lastMove<16)return;lastMove=now;const x=(e.clientX/innerWidth-.5)*2,y=(e.clientY/innerHeight-.5)*2;ganesh.style.transform=`translate(calc(-50% + ${x*18}px),calc(-50% + ${y*12}px))`;const d=Math.hypot(e.clientX-innerWidth/2,e.clientY-innerHeight*.42);if(d<220&&!unlocked){unlocked=true;orb.classList.add('unlocked');hint.textContent='Ganesh Ji has noticed you. Tap to receive the invitation.';burst();}});document.getElementById('scene-ganesh').addEventListener('pointerdown',e=>{if(unlocked&&index===0)showScene(1)});document.getElementById('goldenCard').addEventListener('click',()=>showScene(2));document.getElementById('openBtn').addEventListener('click',()=>showScene(3));
+document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>{const map={story:4,mehndi:5,baraat:6,wedding:7,finale:8};showScene(map[b.dataset.next]??index+1)}));document.getElementById('restart').addEventListener('click',()=>{unlocked=false;orb.classList.remove('unlocked');hint.textContent='Move your pointer toward Ganesh Ji.';showScene(0)});
+let sx=0,sy=0;window.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;sy=e.changedTouches[0].clientY},{passive:true});window.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)){showScene(index+(dx<0?1:-1))}},{passive:true});window.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();showScene(index+1)}if(e.key==='ArrowLeft')showScene(index-1)});
+document.getElementById('sound').addEventListener('click',async()=>{soundOn=!soundOn;document.getElementById('sound').classList.toggle('on',soundOn);document.querySelector('#sound span').textContent=soundOn?'Sound on':'Sound';if(soundOn){audioCtx??=new AudioContext();if(audioCtx.state==='suspended')await audioCtx.resume();clickTone()}});
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),850);burst()});
