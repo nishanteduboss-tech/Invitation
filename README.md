@@ -1,18 +1,22 @@
 # Nishant & Saumya — Interactive Wedding Invitation
 
-A cinematic, mobile-friendly wedding invitation prototype.
+A cinematic, mobile-friendly interactive wedding invitation prototype for GitHub Pages.
 
 ## Experience
-1. Ganesh Ji reacts to pointer movement.
-2. Visitor activates the golden light.
-3. Invitation travels toward Shiva & Parvati.
-4. Shiva & Parvati present the invitation.
-5. TAP TO OPEN reveals the physical invitation.
-6. Wedding details and individual event scenes follow.
-7. Haldi → Mehndi → Baraat → Wedding → Finale.
+
+1. Sacred opening / Ganesh Ji
+2. Cursor-following Ganesh interaction
+3. Invitation handoff to Shiva & Parvati
+4. Tap-to-open invitation
+5. Animated invitation details
+6. Haldi
+7. Mehndi
+8. Baraat
+9. Wedding / Mandap
+10. Final blessing
 
 ## Deploy
-This is a static site. Upload `index.html`, `styles.css`, and `script.js` to a GitHub repository and enable GitHub Pages from the repository settings.
 
-## Next production upgrade
-Replace the CSS character prototypes with Rive character assets and add authored audio/illustrations. Keep GSAP/Rive as the animation layer for production-quality character state machines.
+This is a static site. Upload the files to a GitHub repository and enable **Settings → Pages → Deploy from branch → main → / (root)**.
+
+The current artwork is intentionally CSS/HTML based so the site works without external image assets. A production pass can replace the placeholder deity art with authored SVG/Rive assets and add richer audio, particles and 3D scenes.
