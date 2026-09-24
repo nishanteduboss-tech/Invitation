@@ -1,168 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#120a07">
-<meta name="description" content="Nishant & Saumya — a cinematic wedding invitation">
-<title>Nishant & Saumya — A Divine Beginning</title>
+<title>Nishant ♥ Saumya · Wedding Invitation</title>
+<meta name="theme-color" content="#3a0d10">
+<meta name="description" content="With the blessings of Shri Ganesh and Shiva & Parvati. 2 December 2026, Jaunpur.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nishant ♥ Saumya — Wedding Invitation">
+<meta property="og:description" content="2 December 2026 · 4:00 PM onwards · Sakhwat Premkapur, Jaunpur">
+<meta property="og:image" content="https://nishanteduboss-tech.github.io/Invitation/assets/preview.jpg">
+<meta property="og:url" content="https://nishanteduboss-tech.github.io/Invitation/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<canvas id="fx" aria-hidden="true"></canvas>
-<div id="grain" aria-hidden="true"></div>
+<body data-s="intro">
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6df9a"/><stop offset=".55" stop-color="#d4a94a"/><stop offset="1" stop-color="#8a5a1c"/></linearGradient>
+<symbol id="kailash" viewBox="0 0 400 160"><path d="M0 160V122L58 104 108 62 158 92 200 18 242 92 292 56 342 102 400 118V160Z" fill="currentColor"/></symbol>
+</defs></svg>
 
-<header class="hud">
-  <div class="brand">N <span>✦</span> S</div>
-  <div class="scene-count"><span id="sceneNo">01</span> / 09</div>
-  <button id="soundBtn" class="icon-btn" aria-label="Toggle sound">♪</button>
-</header>
+<div id="wash"></div>
+<div id="bg"><div class="rays"></div><div class="mandala"></div><svg class="kail" preserveAspectRatio="xMidYMax slice"><use href="#kailash"/></svg></div>
+<canvas id="fx"></canvas>
 
-<main id="stage">
-  <section class="scene active" data-scene="intro">
-    <div class="moon"></div><div class="temple-silhouette"></div>
-    <div class="diya"><i></i><b></b></div>
-    <div class="intro-copy">
-      <p class="eyebrow">A SACRED STORY BEGINS</p>
-      <h1>Two souls.<br><em>One divine beginning.</em></h1>
-      <button class="gold-btn" data-go="ganesh">Enter the story <span>→</span></button>
+<main id="app">
+  <section class="scene on" id="intro">
+    <div id="shiva" class="deity" data-d="sp" data-i="shiva-parvati"></div>
+    <div id="ganesh" class="deity" data-d="gn" data-i="ganesh"></div>
+    <div id="card"><span class="dev" style="font-size:1.3rem">ॐ</span><span>Nishant<br>♥<br>Saumya</span></div>
+    <svg id="cursor" viewBox="0 0 24 24"><path d="M4 2l14 9-6 1.5L9 19z" fill="#fff" stroke="#3a0d10" stroke-width="1.2"/></svg>
+    <p id="cap"></p>
+  </section>
+
+  <section class="scene" id="couple">
+    <div class="arch r" style="--d:0"><img src="assets/nishant-saumya.jpg" alt="Nishant and Saumya" onerror="this.parentNode.remove()"></div>
+    <h1 class="script r" style="--d:2">Nishant Tiwari</h1>
+    <p class="sub r" style="--d:3">Son of Kailashnath Tiwari</p>
+    <div class="heart r" style="--d:4">♥</div>
+    <h1 class="script r" style="--d:5">Saumya Pandey</h1>
+    <p class="sub r" style="--d:6">Daughter of Brahma Kumar Pandey</p>
+  </section>
+
+  <section class="scene" id="date">
+    <p class="cin r" style="--d:0;font-size:1rem">Save the date</p>
+    <div class="big r" style="--d:1">02</div>
+    <p class="cin r" style="--d:2;font-size:1.3rem;color:var(--g2)">December 2026</p>
+    <i class="orn r" style="--d:3"></i>
+    <p class="cin r" style="--d:4;font-size:.95rem">4:00 PM onwards</p>
+    <p class="sub r" style="--d:5;font-size:1.4rem;margin-top:10px">Sakhwat Premkapur<br>Jaunpur, Uttar Pradesh</p>
+    <div class="btns r" style="--d:6">
+      <a class="pill o" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sakhwat+Premkapur+Jaunpur+Uttar+Pradesh">Open map</a>
+      <a class="pill o" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Nishant+%E2%99%A5+Saumya+Wedding&dates=20261202T160000/20261202T230000&ctz=Asia/Kolkata&location=Sakhwat+Premkapur,+Jaunpur,+Uttar+Pradesh">Add to calendar</a>
     </div>
   </section>
 
-  <section class="scene" data-scene="ganesh">
-    <div class="stars"></div>
-    <div class="mountains back"></div><div class="mountains front"></div>
-    <div class="ganesh-art divine">
-      <div class="halo"></div>
-      <div class="deity-head">ॐ</div>
-      <div class="deity-body"></div>
-      <div class="deity-hand"></div>
-    </div>
-    <div class="scene-copy left">
-      <p class="eyebrow">THE FIRST BLESSING</p>
-      <h2>Ganesh Ji<br><em>noticed you.</em></h2>
-      <p class="hint" id="ganeshHint">Move your pointer / finger toward the golden light.</p>
-    </div>
-    <div id="goldOrb" class="gold-orb" aria-label="Golden light"></div>
+  <!-- ritual scenes are inserted here by app.js -->
+
+  <section class="scene" id="bless">
+    <div class="deity sp2 r" style="--d:0" data-d="sp" data-i="shiva-parvati"></div>
+    <p class="dev r" style="--d:2;font-size:1.5rem">॥ ॐ नमः शिवाय ॥</p>
+    <h2 class="r" style="--d:3">Divine blessings</h2>
+    <p class="sub r" style="--d:4">May Mahadev and Maa Parvati bless Nishant &amp; Saumya with a lifetime of love, harmony and togetherness.</p>
   </section>
 
-  <section class="scene" data-scene="kailash">
-    <div class="kailash-sky"></div>
-    <div class="kailash-cloud c1"></div><div class="kailash-cloud c2"></div>
-    <div class="kailash"></div>
-    <div class="divine-couple">
-      <div class="shiva aura-person"><span>ॐ</span></div>
-      <div class="parvati aura-person"><span>❀</span></div>
-    </div>
-    <div class="card-flight" id="cardFlight">
-      <div class="mini-card">N <span>♥</span> S</div>
-    </div>
-    <div class="scene-copy center">
-      <p class="eyebrow">FROM KAILASH</p>
-      <h2>A blessing<br><em>for your journey.</em></h2>
-      <button class="seal-btn" data-go="open">TAP TO RECEIVE</button>
-    </div>
-  </section>
-
-  <section class="scene" data-scene="open">
-    <div class="invitation-shell" id="invitationShell">
-      <div class="invite-cover">
-        <div class="ornament">❈</div>
-        <p>॥ श्री गणेशाय नमः ॥</p>
-        <h2>Nishant <small>&</small> Saumya</h2>
-        <div class="cover-line"></div>
-        <span>WEDDING INVITATION</span>
-        <div class="wax">N<span>♥</span>S</div>
-      </div>
-      <div class="invite-inside">
-        <p class="eyebrow">WITH THE BLESSINGS OF OUR FAMILIES</p>
-        <h2>We invite you<br><em>to celebrate love.</em></h2>
-        <p class="date-big">02 · 12 · 2026</p>
-        <p class="venue">Sakhwat Premkapur, Jaunpur</p>
-        <button class="gold-btn" data-go="story">Open our celebration <span>→</span></button>
-      </div>
-    </div>
-  </section>
-
-  <section class="scene festival" data-scene="story">
-    <div class="festival-bg story-bg"></div>
-    <div class="timeline-line"></div>
-    <div class="scene-copy center">
-      <p class="eyebrow">THE CELEBRATION</p>
-      <h2>Every ritual<br><em>has a little magic.</em></h2>
-      <div class="event-grid">
-        <button class="event-card" data-go="haldi"><b>01</b><span>HALDI</span><small>Golden laughter</small></button>
-        <button class="event-card" data-go="mehndi"><b>02</b><span>MEHNDI</span><small>Patterns of love</small></button>
-        <button class="event-card" data-go="baraat"><b>03</b><span>BARAAT</span><small>The grand arrival</small></button>
-        <button class="event-card" data-go="wedding"><b>04</b><span>WEDDING</span><small>The sacred vows</small></button>
-      </div>
-    </div>
-  </section>
-
-  <section class="scene festival haldi-scene" data-scene="haldi">
-    <div class="marigold-field"></div><div class="turmeric-dust"></div>
-    <div class="rangoli">✦ ❀ ✦ ❀ ✦</div>
-    <div class="scene-copy center">
-      <p class="eyebrow">CEREMONY 01</p><h2>HALDI</h2>
-      <p class="large-note">A little sunshine.<br><em>A lot of laughter.</em></p>
-      <div class="event-info"><b>HALDI CEREMONY</b><span>Festive details • Family • Joy</span></div>
-      <button class="outline-btn" data-go="mehndi">Next celebration →</button>
-    </div>
-  </section>
-
-  <section class="scene festival mehndi-scene" data-scene="mehndi">
-    <svg class="mehndi-lines" viewBox="0 0 600 600" aria-hidden="true">
-      <path d="M300 40c-80 70-150 120-120 220 20 65 90 90 120 190 30-100 100-125 120-190 30-100-40-150-120-220z"/>
-      <path d="M300 120c-45 45-65 75-45 120 15 35 35 50 45 100 10-50 30-65 45-100 20-45 0-75-45-120z"/>
-      <path d="M250 205h100M235 245h130M245 285h110"/>
-    </svg>
-    <div class="scene-copy center">
-      <p class="eyebrow">CEREMONY 02</p><h2>MEHNDI</h2>
-      <p class="large-note">A thousand tiny lines,<br><em>one beautiful story.</em></p>
-      <div class="event-info"><b>MEHNDI CEREMONY</b><span>Henna • Music • Celebration</span></div>
-      <button class="outline-btn" data-go="baraat">Bring on the baraat →</button>
-    </div>
-  </section>
-
-  <section class="scene festival baraat-scene" data-scene="baraat">
-    <div class="city"></div><div class="string-lights"></div>
-    <div class="horse"><div class="horse-head">◖</div><div class="horse-body"></div><div class="horse-tail"></div><div class="rider">✦</div></div>
-    <div class="dhol d1">◉</div><div class="dhol d2">◉</div>
-    <div class="scene-copy left">
-      <p class="eyebrow">CEREMONY 03</p><h2>BARAAT</h2>
-      <p class="large-note">Lights on.<br><em>Hearts racing.</em></p>
-      <div class="event-info"><b>THE GRAND ARRIVAL</b><span>Music • Dance • Baraat</span></div>
-      <button class="outline-btn" data-go="wedding">Enter the mandap →</button>
-    </div>
-  </section>
-
-  <section class="scene festival wedding-scene" data-scene="wedding">
-    <div class="mandap"></div><div class="fire" id="fire"><i></i><i></i><i></i></div>
-    <div class="petal-ring"></div>
-    <div class="scene-copy center">
-      <p class="eyebrow">CEREMONY 04</p><h2>THE WEDDING</h2>
-      <p class="large-note">Seven steps.<br><em>A lifetime together.</em></p>
-      <div class="pheras"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div>
-      <button class="outline-btn" data-go="finale">The final blessing →</button>
-    </div>
-  </section>
-
-  <section class="scene" data-scene="finale">
-    <div class="final-glow"></div><div class="petal-storm"></div>
-    <div class="finale-copy">
-      <p class="eyebrow">WITH LOVE & BLESSINGS</p>
-      <h1>Nishant <span>&</span> Saumya</h1>
-      <div class="final-rule"></div>
-      <p class="date-final">02 DECEMBER 2026</p>
-      <p class="venue">Sakhwat Premkapur · Jaunpur</p>
-      <p class="closing">Two souls. One journey.<br><em>One sacred beginning.</em></p>
-      <button class="gold-btn" id="replay">Replay the story <span>↻</span></button>
-    </div>
+  <section class="scene" id="final">
+    <p class="dev r" style="--d:0;font-size:1.3rem">॥ श्री गणेशाय नमः ॥</p>
+    <h1 class="script r fin" style="--d:1">Nishant <span class="heart">♥</span> Saumya</h1>
+    <p class="cin r" style="--d:3;font-size:1.3rem;color:inherit">02 • 12 • 2026</p>
+    <i class="orn r" style="--d:4"></i>
+    <p class="cin r bl" style="--d:5">With the blessings of Shri Ganesh<br>and Shiva &amp; Parvati</p>
+    <div class="btns r" style="--d:7"><button class="pill" id="rsvp">RSVP with love</button><button class="pill o" id="share">Share</button></div>
   </section>
 </main>
 
-<nav class="progress" id="progress" aria-label="Scene progress"></nav>
-<div class="gesture"><span>←</span> Swipe / drag to explore <span>→</span></div>
+<div id="flash"></div>
+<nav id="dots"></nav>
+<div id="hint">TAP OR SWIPE</div>
+<button id="music" aria-label="Music on/off">🔊</button>
+
+<div id="gate">
+  <div class="dev" style="font-size:3.4rem">ॐ</div>
+  <h1 class="script" style="font-size:2.6rem">Nishant ♥ Saumya</h1>
+  <p class="sub">A sacred invitation awaits you</p>
+  <button class="pill" id="begin">Touch to begin</button>
+  <p class="sub" style="font-size:.95rem;opacity:.6">Best with sound on 🔔</p>
+</div>
+
 <script src="app.js"></script>
 </body>
 </html>
